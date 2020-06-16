@@ -14,6 +14,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.(sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
@@ -54,4 +60,5 @@ module.exports = {
       new OptimizeCSSAssetsPlugin({}),
     ],
   },
+  devtool: 'eval-source-map',
 };
